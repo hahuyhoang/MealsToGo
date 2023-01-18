@@ -3,7 +3,15 @@ import React from "react";
 import styled from "styled-components";
 import { Button, Card } from "react-native-paper";
 
-const Title = styled.Text`
+const RestaurantCart = styled(Card)`
+  background-color: white;
+`;
+const RestaurantCartCover = styled(Card.Cover)`
+  padding: 20px;
+  background-color: white
+`;
+
+const Title = styled(Text)`
   padding: 16px;
   color: red;
 `;
@@ -21,10 +29,10 @@ const RestaurantInfo = ({ restaurant = {} }) => {
     isCloseTemporarily,
   } = restaurant;
   return (
-    <Card elevation={5}>
-      <Card.Cover source={{ uri: photos[0] }} />
+    <RestaurantCart elevation={5}>
+      <RestaurantCartCover source={{ uri: photos[0] }} />
       <Title>{name}</Title>
-    </Card>
+    </RestaurantCart>
   );
 };
 
