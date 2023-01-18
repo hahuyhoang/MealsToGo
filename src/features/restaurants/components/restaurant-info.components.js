@@ -4,16 +4,26 @@ import styled from "styled-components";
 import { Button, Card } from "react-native-paper";
 
 const RestaurantCart = styled(Card)`
-  background-color: white;
+  background-color: ${(props) => props.theme.colors.bg.primary};
 `;
 const RestaurantCartCover = styled(Card.Cover)`
-  padding: 20px;
-  background-color: white
+  padding: ${(props) => props.theme.space[3]};
+  background-color: ${(props) => props.theme.colors.bg.primary};
 `;
 
 const Title = styled(Text)`
-  padding: 16px;
-  color: red;
+  color: ${(props) => props.theme.colors.ui.primary};
+  font-family: ${(props) => props.theme.fonts.heading};
+  font-size: ${(props) => props.theme.fontSizes.body};
+`;
+
+const Info = styled(View)`
+  padding: ${(props) => props.theme.space[2]};
+`;
+
+const Address = styled(Text)`
+  font-family: ${(props) => props.theme.fonts.body};
+  font-size: ${(props) => props.theme.fontSizes.caption};
 `;
 
 const RestaurantInfo = ({ restaurant = {} }) => {
@@ -31,7 +41,10 @@ const RestaurantInfo = ({ restaurant = {} }) => {
   return (
     <RestaurantCart elevation={5}>
       <RestaurantCartCover source={{ uri: photos[0] }} />
-      <Title>{name}</Title>
+      <Info>
+        <Title>{name}</Title>
+        <Address>{address}</Address>
+      </Info>
     </RestaurantCart>
   );
 };
